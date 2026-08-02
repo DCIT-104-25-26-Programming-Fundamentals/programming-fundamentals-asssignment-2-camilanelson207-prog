@@ -73,3 +73,82 @@
 #include <cmath>
 using namespace std;
 
+double doAdd(double a, double b) {
+    return a + b;
+}
+
+double doSubtract(double a, double b) {
+    return a - b;
+}
+
+double doMultiply(double a, double b) {
+    return a * b;
+}
+
+double doDivide(double a, double b) {
+    return a / b;
+}
+
+double doModulus(double a, double b) {
+    return fmod(a, b);
+}
+
+double doPower(double a, double b) {
+    return pow(a, b);
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "     SIMPLE CALCULATOR" << endl;
+        cout << "1. Addition" << endl;
+        cout << "2. Subtraction" << endl;
+        cout << "3. Multiplication" << endl;
+        cout << "4. Division" << endl;
+        cout << "5. Modulus" << endl;
+        cout << "6. Exponentiation" << endl;
+        cout << "7. Quit" << endl;
+        cout << "Select an operation (1-7): ";
+        cin >> choice;
+
+        if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5 || choice == 6) {
+            double num1, num2;
+            cout << "Enter first number : ";
+            cin >> num1;
+            cout << "Enter second number: ";
+            cin >> num2;
+
+            cout << fixed << setprecision(2);
+
+            if (choice == 1) {
+                cout << "Result: " << num1 << " + " << num2 << " = " << doAdd(num1, num2) << endl;
+            } else if (choice == 2) {
+                cout << "Result: " << num1 << " - " << num2 << " = " << doSubtract(num1, num2) << endl;
+            } else if (choice == 3) {
+                cout << "Result: " << num1 << " * " << num2 << " = " << doMultiply(num1, num2) << endl;
+            } else if (choice == 4) {
+                if (num2 == 0) {
+                    cout << "Error: Cannot divide by zero." << endl;
+                } else {
+                    cout << "Result: " << num1 << " / " << num2 << " = " << doDivide(num1, num2) << endl;
+                }
+            } else if (choice == 5) {
+                if (num2 == 0) {
+                    cout << "Error: Cannot divide by zero." << endl;
+                } else {
+                    cout << "Result: " << num1 << " % " << num2 << " = " << doModulus(num1, num2) << endl;
+                }
+            } else if (choice == 6) {
+                cout << "Result: " << num1 << " ^ " << num2 << " = " << doPower(num1, num2) << endl;
+            }
+        } else if (choice == 7) {
+            cout << "Goodbye!" << endl;
+        } else {
+            cout << "Error: Invalid choice. Please enter 1-7." << endl;
+        }
+
+    } while (choice != 7);
+
+    return 0;
+}
